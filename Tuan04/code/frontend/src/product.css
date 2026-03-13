@@ -1,0 +1,81 @@
+body{
+    background:#f4f6f8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width:800px;
+    margin:auto;
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.form-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input{
+    flex:1;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.btn{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+}
+
+.add{
+    background:#2ecc71;
+}
+
+.update{
+    background:#f39c12;
+}
+
+.edit{
+    background:#3498db;
+}
+
+.delete{
+    background:#e74c3c;
+}
+
+.product-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.product-table th{
+    background:#2c3e50;
+    color:white;
+    padding:10px;
+}
+
+.product-table td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.product-table tr:hover{
+    background:#f2f2f2;
+}
+
+.action{
+    display:flex;
+    gap:8px;
+}
