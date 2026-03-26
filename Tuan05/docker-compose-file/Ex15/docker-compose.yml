@@ -1,0 +1,8 @@
+services:
+  redis:
+    image: redis
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "256M"

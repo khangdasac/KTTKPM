@@ -1,0 +1,14 @@
+services:
+  app1:
+    image: nginx
+    networks:
+      - mynet
+
+  app2:
+    image: busybox
+    command: sleep 1000
+    networks:
+      - mynet
+
+networks:
+  mynet:
