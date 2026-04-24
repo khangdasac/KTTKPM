@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "high-load-test",
+    "name": "High-Load Backend Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Get Data (Original Test)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/data",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "data"]
+        }
+      }
+    },
+    {
+      "name": "Products - Get All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        }
+      },
+      "description": "Get all products from MongoDB"
+    },
+    {
+      "name": "Products - Get by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/prod_001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "prod_001"]
+        }
+      },
+      "description": "Get product by ID"
+    },
+    {
+      "name": "Products - Get by Category (Electronics)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/category/Electronics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "category", "Electronics"]
+        }
+      },
+      "description": "Get products by category"
+    }
+  ]
+}
+

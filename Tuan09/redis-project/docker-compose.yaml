@@ -1,0 +1,57 @@
+name: redis-project
+services:
+  redis:
+    image: redis:7.2
+    container_name: redis-redis-project
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq-redis-project
+    restart: always
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+  
+  mongodb:
+    image: mongo:5
+    container_name: mongodb-redis-project
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: product_db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - backend-network
+    healthcheck:
+      test: ["CMD", "mongosh", "-u", "admin", "-p", "password123", "--authenticationDatabase", "admin", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+volumes:
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+  mongodb_data:
+    driver: local
+
+networks:
+  backend-network:
+    driver: bridge
